@@ -8,3 +8,4 @@ Rules:
 - The test must FAIL on the buggy code and PASS after the Fix.
 - If the expected behavior is an error, use: with pytest.raises(ErrorType):
 - If the docstring says what to return for an empty or zero input, assert that return value. Never use pytest.raises in that case.
+- If a function takes a db argument, ALWAYS build a real sqlite3 in-memory database, create the table the query uses (e.g. users with a username column), insert one row, and pass that db. Never pass None.
